@@ -1,0 +1,73 @@
+[package]
+name = "riverbase_http"
+description = "Riverbase HTTP portal stack: axum, auth, Casbin, OpenAPI, websocket, RxDB, and portal composition (ARC-03)"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+
+[features]
+default = ["auth"]
+websocket = ["axum/ws", "dep:ciborium"]
+rxdb = []
+sse = []
+auth = [
+    "dep:jsonwebtoken",
+    "dep:reqwest",
+    "dep:oauth2",
+    "dep:tower-sessions",
+    "dep:axum-extra",
+    "dep:rand",
+    "dep:subtle",
+    "dep:url",
+    "dep:time",
+    "dep:argon2",
+]
+cfgfetch = ["riverbase_core/cfgfetch"]
+cfgfetch-https = ["cfgfetch", "riverbase_core/cfgfetch-https"]
+cfgfetch-git = ["cfgfetch", "riverbase_core/cfgfetch-git"]
+cfgfetch-s3 = ["cfgfetch", "riverbase_core/cfgfetch-s3"]
+cfgfetch-oci = ["cfgfetch", "riverbase_core/cfgfetch-oci"]
+cfgfetch-all = ["cfgfetch-https", "cfgfetch-git", "cfgfetch-s3", "cfgfetch-oci"]
+
+[dependencies]
+async-stream = { workspace = true }
+async-trait = { workspace = true }
+futures-util = { workspace = true }
+aide = { workspace = true }
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+casbin = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+schemars = { workspace = true }
+indexmap = { workspace = true }
+base64 = "0.22"
+flate2 = "1"
+sha2 = "0.10"
+md5 = "0.7"
+ciborium = { workspace = true, optional = true }
+diesel = { workspace = true }
+diesel-async = { workspace = true }
+riverbase_core = { path = "../riverbase_core", default-features = false, features = ["kernel", "http"] }
+jsonwebtoken = { workspace = true, optional = true }
+reqwest = { workspace = true, optional = true }
+oauth2 = { workspace = true, optional = true }
+tower-sessions = { workspace = true, optional = true }
+axum-extra = { workspace = true, optional = true }
+rand = { workspace = true, optional = true }
+subtle = { workspace = true, optional = true }
+url = { workspace = true, optional = true }
+time = { version = "0.3", optional = true }
+argon2 = { version = "0.5", optional = true }
+
+[dev-dependencies]
+tokio = { workspace = true }
+
+[lints]
+workspace = true

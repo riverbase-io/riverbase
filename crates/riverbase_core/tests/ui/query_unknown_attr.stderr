@@ -1,0 +1,12 @@
+error: query_resource!: unknown field attribute `sortible` (expected identifier, hidden, no_sort, or sortable)
+  --> tests/ui/query_unknown_attr.rs:1:1
+   |
+ 1 | / riverbase_core::query_resource! {
+ 2 | |     Broken name "broken" {
+ 3 | |         meta {
+ 4 | |             title: "Broken",
+...  |
+14 | | }
+   | |_^
+   |
+   = note: this error originates in the macro `$crate::query_resource` which comes from the expansion of the macro `riverbase_core::query_resource` (in Nightly builds, run with -Z macro-backtrace for more info)

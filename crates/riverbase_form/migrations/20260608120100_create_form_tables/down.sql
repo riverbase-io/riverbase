@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS riverbase_form.form_element;
+DROP TABLE IF EXISTS riverbase_form.form_submission;
+DROP TABLE IF EXISTS riverbase_form.document_node;
+DROP TABLE IF EXISTS riverbase_form.document_collection;
+DROP TABLE IF EXISTS riverbase_form.document;
+DROP TABLE IF EXISTS riverbase_form.collection;
+DROP TABLE IF EXISTS riverbase_form.template_registry;
+DROP TABLE IF EXISTS riverbase_form.form_registry;
+DROP TABLE IF EXISTS riverbase_form.element_registry;

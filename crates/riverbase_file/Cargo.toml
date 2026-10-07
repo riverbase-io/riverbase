@@ -1,0 +1,43 @@
+[package]
+name = "riverbase_file"
+description = "Media file management for Riverbase (OpenDAL-backed storage and metadata)"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+
+[features]
+default = ["postgres", "fs"]
+postgres = ["dep:diesel", "dep:diesel-async", "dep:diesel_migrations", "dep:r2d2"]
+fs = ["opendal/services-fs"]
+aws-s3 = ["opendal/services-s3"]
+http = ["opendal/services-http"]
+
+[dependencies]
+riverbase_core = { workspace = true }
+async-trait = { workspace = true }
+async-stream = { workspace = true }
+chrono = { workspace = true }
+futures-util = { workspace = true }
+opendal = { version = "0.56.0" }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+sha2 = "0.11.0"
+tokio = { workspace = true }
+uuid = { workspace = true, features = ["v4", "serde"] }
+diesel = { workspace = true, optional = true }
+diesel-async = { workspace = true, optional = true }
+diesel_migrations = { workspace = true, optional = true }
+r2d2 = { workspace = true, optional = true }
+
+[dev-dependencies]
+async-trait = { workspace = true }
+riverbase_core = { workspace = true }
+tokio = { workspace = true }
+uuid = { workspace = true, features = ["v4", "serde"] }
+
+[lib]
+path = "src/lib.rs"
+
+[lints]
+workspace = true

@@ -1,0 +1,10 @@
+ALTER TABLE IF EXISTS riverbase_form.text_input_data RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.form_element RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.form_submission RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.document_node RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.document_collection RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.document RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.collection RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.template_registry RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.form_registry RENAME COLUMN _tenant TO _realm;
+ALTER TABLE IF EXISTS riverbase_form.element_registry RENAME COLUMN _tenant TO _realm;

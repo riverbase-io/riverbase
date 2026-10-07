@@ -1,0 +1,89 @@
+[package]
+name = "riverbase_core"
+description = "Rust implementation of the Riverbase domain platform (kernel)"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+
+[features]
+# Kernel-only default. Portal services depend on `riverbase_http` ([ARC-03]).
+default = ["kernel"]
+# Command/query/datastore/macros.
+kernel = ["postgres"]
+# Minimal axum/aide impls for `RiverbaseError` (orphan-rule bridge; not the portal stack).
+http = ["dep:axum", "dep:aide"]
+# Marker: Postgres/Diesel backends ship in-tree.
+postgres = []
+# NATS / Redis stream buses (`[riverbase.bus]` nats:// / redis://).
+nats-io = ["dep:async-nats"]
+redis = ["dep:redis"]
+# YAML config payloads and cfgfmt YAML process documents.
+yaml = ["dep:serde_yaml"]
+# OpenTelemetry spike ([OPS-05]): enables `init_otel` messaging; exporters stay process-owned.
+otel = []
+
+# Remote, in-memory, optionally SOPS-encrypted config fetching.
+cfgfetch = ["dep:zeroize", "dep:url"]
+cfgfetch-https = ["cfgfetch", "dep:reqwest"]
+cfgfetch-git = ["cfgfetch", "dep:reqwest"]
+cfgfetch-s3 = ["cfgfetch", "dep:aws-config", "dep:aws-sdk-s3"]
+cfgfetch-oci = ["cfgfetch", "dep:reqwest", "dep:aws-config", "dep:aws-sdk-ecr", "dep:gcp_auth"]
+cfgfetch-all = ["cfgfetch-https", "cfgfetch-git", "cfgfetch-s3", "cfgfetch-oci"]
+
+[dependencies]
+async-stream = { workspace = true }
+futures-util = { workspace = true }
+async-trait = { workspace = true }
+anyhow = { workspace = true }
+indexmap = { workspace = true }
+axum = { workspace = true, optional = true }
+aide = { workspace = true, optional = true }
+chrono = { workspace = true }
+diesel = { workspace = true }
+diesel-async = { workspace = true }
+deadpool = { workspace = true }
+diesel_migrations = { workspace = true }
+r2d2 = { workspace = true }
+tokio-postgres = { workspace = true }
+ractor = { workspace = true }
+schemars = { workspace = true }
+garde = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true, optional = true }
+thiserror = { workspace = true }
+toml = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+ulid = { workspace = true }
+uuid = { workspace = true, features = ["v4", "v5", "serde"] }
+reqwest = { workspace = true, optional = true }
+url = { workspace = true, optional = true }
+async-nats = { version = "0.49.0", optional = true }
+redis = { version = "1.2.1", features = ["aio", "tokio-comp"], optional = true }
+paste = { workspace = true }
+hcl-rs = { workspace = true }
+jsonschema = { workspace = true }
+base64 = "0.22"
+flate2 = "1"
+sha1 = "0.10"
+zeroize = { workspace = true, optional = true }
+aws-config = { workspace = true, optional = true }
+aws-sdk-s3 = { workspace = true, optional = true }
+aws-sdk-ecr = { workspace = true, optional = true }
+gcp_auth = { workspace = true, optional = true }
+
+[dev-dependencies]
+tempfile = "3"
+trybuild = "1"
+tokio = { workspace = true }
+riverbase_http = { path = "../riverbase_http" }
+todo-domain = { path = "../../examples/todo-app/domain" }
+
+[lib]
+path = "src/lib.rs"
+
+[lints]
+workspace = true

@@ -1,0 +1,544 @@
+/* Subset of rjs-admin/loader/static.css for the /auth error card preview. */
+:root {
+  --ld-screen-backdrop: #e3e3e3;
+  --ld-screen-spinner-track: #c3c4c6;
+  --ld-screen-spinner-accent: #3b82f6;
+  --ld-screen-spinner-done: #3bd000;
+  --ld-screen-message: #6b7280;
+  --ld-accent: #0e6391;
+  --ld-accent-light: #147cb3;
+  --ld-accent-dark: #0a4a6e;
+  --ld-accent-soft: #0e63911a;
+  --ld-accent-ring: #0e63914c;
+  --ld-accent-line: #0e639133;
+  --ld-accent-line-strong: #0e639159;
+  --ld-accent-glow: #0e639166;
+  --ld-warn: #b45309;
+  --ld-warn-soft: #b453091a;
+  --ld-danger: #b42318;
+  --ld-danger-soft: #b423181a;
+  --ld-heading: #1e293b;
+  --ld-body: #0f172a;
+  --ld-text: #475569;
+  --ld-muted: #64748b;
+  --ld-faint: #94a3b8;
+  --ld-ink: #334155;
+  --ld-surface: #fff;
+  --ld-surface-muted: #f8fafc;
+  --ld-border: #e2e8f0;
+  --ld-card-divider: #e2e8f0;
+  --ld-on-accent: #fff;
+  --ld-link: var(--ld-accent);
+  --ld-screen-error-start: #e8edf3;
+  --ld-screen-error-end: #d5dce8;
+  --ld-card-shadow:
+    0 20px 25px -5px #0f172a1a,
+    0 8px 10px -6px #0f172a1a;
+  --ld-shadow-soft: #0f172a0f;
+  --ld-btn-bg: #fff;
+  --ld-btn-text: #334155;
+  --ld-btn-hover: #f8fafc;
+  --ld-detail: #64748b;
+  --ld-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+  --ld-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.loader-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  opacity: 1;
+  transition: opacity 250ms ease-out;
+  background-color: var(--ld-screen-backdrop);
+}
+
+body.app-loading .loader-screen,
+body.app-error .loader-screen {
+  display: flex;
+}
+
+body.app-showing .loader-screen {
+  opacity: 0;
+}
+
+body.app-error .loader-screen {
+  background: linear-gradient(
+    135deg,
+    var(--ld-screen-error-start) 0%,
+    var(--ld-screen-error-end) 100%
+  );
+}
+
+.ld__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  max-width: 32rem;
+  margin: auto;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+/* ── Brand (portal logo + name) ── */
+
+.ld__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-top: 0.25rem;
+  font-family: var(--ld-font);
+}
+
+.ld__brand-logo {
+  height: 2.5rem;
+  width: auto;
+  max-width: 10rem;
+  object-fit: contain;
+}
+
+.ld__brand-divider {
+  width: 1px;
+  height: 2.5rem;
+  background: var(--ld-faint);
+}
+
+.ld__brand-name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--ld-heading);
+}
+
+body.app-error .ld__home {
+  display: none;
+}
+
+@keyframes loader-card-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ld__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: loader-card-in 250ms ease-out;
+  box-sizing: border-box;
+  width: min(26rem, calc(100vw - 2rem));
+  padding: 1.5rem;
+  background: var(--ld-surface);
+  border-radius: 1rem;
+  box-shadow: var(--ld-card-shadow);
+  color: var(--ld-body);
+  font-family: var(--ld-font);
+  text-align: center;
+}
+
+.ld__card svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ld__card .ld__brand {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ld-border);
+}
+
+.ld__card .ld__brand-divider {
+  background: var(--ld-card-divider);
+}
+
+.ld__card .ld__brand-name {
+  color: var(--ld-text);
+}
+
+.ld__card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0 0.75rem;
+}
+
+.ld__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.25rem;
+  border-radius: 9999px;
+  background: var(--ld-accent-soft);
+  color: var(--ld-accent);
+}
+
+.ld__card-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+[data-rjs-error="forbidden"] .ld__card-icon,
+[data-rjs-error="forbidden-realm"] .ld__card-icon {
+  background: var(--ld-danger-soft);
+  color: var(--ld-danger);
+}
+
+[data-rjs-error="failed"] .ld__card-icon,
+[data-rjs-error="boot"] .ld__card-icon {
+  background: var(--ld-warn-soft);
+  color: var(--ld-warn);
+}
+
+.ld__card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ld-heading);
+}
+
+.ld__card-message {
+  margin: 0;
+  max-width: 22rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ld-text);
+}
+
+.ld__card-detail {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  overflow: auto;
+  border-radius: 0.5rem;
+  background: var(--ld-surface-muted);
+  font-family: var(--ld-mono);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  text-align: left;
+  color: var(--ld-detail);
+  word-break: break-word;
+}
+
+.ld__card-hint {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: var(--ld-accent-soft);
+  border: 1px solid var(--ld-accent-line);
+  text-align: left;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ld-ink);
+}
+
+.ld__card-hint svg {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+  color: var(--ld-accent);
+}
+
+/* ── Signed-in user (403 realm) ── */
+
+.ld__card-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--ld-surface-muted);
+  border: 1px solid var(--ld-border);
+  border-radius: 0.75rem;
+}
+
+.ld__card-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background: var(--ld-surface);
+  border: 1px solid var(--ld-border);
+  box-shadow: 0 1px 2px var(--ld-shadow-soft);
+  color: var(--ld-link);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ld__card-avatar svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ld__card-user-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+}
+
+.ld__card-user-name,
+.ld__card-user-email {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ld__card-user-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ld-heading);
+}
+
+.ld__card-user-email {
+  font-size: 0.875rem;
+  color: var(--ld-muted);
+}
+
+/* ── Other portals (403 realm) ── */
+
+.ld__card-realms {
+  text-align: left;
+}
+
+.ld__card-realms-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ld-text);
+}
+
+.ld__card-realms-empty {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ld-muted);
+}
+
+.ld__card-realm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ld__card-realm {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--ld-border);
+  border-radius: 0.625rem;
+  color: var(--ld-link);
+  text-decoration: none;
+}
+
+.ld__card-realm:hover {
+  background: var(--ld-accent-soft);
+  border-color: var(--ld-accent-line-strong);
+}
+
+.ld__card-realm-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.ld__card-realm-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.ld__card-realm-host {
+  font-family: var(--ld-mono);
+  font-size: 0.75rem;
+  color: var(--ld-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ld__card-realm svg {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ── Actions ── */
+
+.ld__card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ld__card-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: var(--ld-btn-bg);
+  color: var(--ld-btn-text);
+  font-family: var(--ld-font);
+  font-size: 1rem;
+  height: 2.75rem;
+  cursor: pointer;
+}
+
+.ld__card-btn:hover {
+  background: var(--ld-btn-hover);
+}
+
+.ld__card-btn svg {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.loader-screen a {
+  text-decoration: none;
+}
+
+.loader-screen svg {
+  display: block;
+}
+
+.ld__card-btn--primary {
+  background: linear-gradient(135deg, var(--ld-accent-light) 0%, var(--ld-accent) 100%);
+  color: var(--ld-on-accent);
+  box-shadow: 0 4px 14px var(--ld-accent-ring);
+}
+
+.ld__card-btn--primary:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, var(--ld-accent) 0%, var(--ld-accent-dark) 100%);
+  box-shadow: 0 6px 20px var(--ld-accent-glow);
+}
+
+.ld__card-btn:focus-visible,
+.ld__card-realm:focus-visible,
+.ld__card-report:focus-visible,
+.ld__card-signout:focus-visible,
+.ld__card-home:focus-visible {
+  outline: 2px solid var(--ld-accent);
+  outline-offset: 2px;
+}
+
+/* ── Footer: code, separator, Report. Sign out or Home on the right. ── */
+
+.ld__card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ld__card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-family: var(--ld-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--ld-faint);
+}
+
+.ld__card-code {
+  font-weight: 700;
+  color: var(--ld-detail);
+}
+
+.ld__card-sep {
+  width: 1px;
+  align-self: stretch;
+  max-height: 0.85rem;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.ld__card-report,
+.ld__card-signout,
+.ld__card-home {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.125rem 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
+.ld__card-signout,
+.ld__card-home {
+  margin-left: auto;
+}
+
+.ld__card-report:hover,
+.ld__card-signout:hover,
+.ld__card-home:hover {
+  color: var(--ld-text);
+}
+
+.ld__card-report svg,
+.ld__card-signout svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.ld__screen-note {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0.75rem 1rem 1.25rem;
+  text-align: center;
+  font-family: var(--ld-font);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--ld-faint);
+}

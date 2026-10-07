@@ -1,0 +1,25 @@
+//! Error catalogue.
+mod app;
+pub use app::*;
+mod aut;
+pub use aut::*;
+mod cas;
+pub use cas::*;
+mod cfg;
+pub use cfg::*;
+mod hok;
+pub use hok::*;
+mod idm;
+pub use idm::*;
+mod lnk;
+pub use lnk::*;
+mod qry;
+pub use qry::*;
+mod rtc;
+pub use rtc::*;
+mod rxd;
+pub use rxd::*;
+mod t00;
+pub use t00::*;
+mod web;
+pub use web::*;

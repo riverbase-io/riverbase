@@ -1,0 +1,125 @@
+//! `TRN` error catalogue.
+
+crate::declare_errors! {
+    type_base: "https://riverbase.io/~/rs/error/",
+    TRN_001 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-001",
+        message: "Failed to connect to the NATS server.",
+    },
+    TRN_002 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-002",
+        message: "Failed to serialize NATS message payload.",
+    },
+    TRN_003 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-003",
+        message: "Failed to publish message to NATS.",
+    },
+    TRN_004 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-004",
+        message: "Failed to open Redis client.",
+    },
+    TRN_005 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-005",
+        message: "Failed to connect to Redis.",
+    },
+    TRN_006 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-006",
+        message: "Failed to serialize Redis message payload.",
+    },
+    TRN_007 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-007",
+        message: "Failed to publish message to Redis.",
+    },
+    TRN_010 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-010",
+        message: "Failed to open Redis pub/sub connection.",
+    },
+    TRN_011 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-011",
+        message: "Failed to subscribe to Redis channel.",
+    },
+    TRN_020 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-020",
+        message: "Failed to connect PostgreSQL message bus.",
+    },
+    TRN_021 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-021",
+        message: "Failed to ensure notify payload spill table.",
+    },
+    TRN_023 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-023",
+        message: "Invalid spill payload id in NOTIFY.",
+    },
+    TRN_024 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-024",
+        message: "Failed to load spilled NOTIFY payload.",
+    },
+    TRN_025 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-025",
+        message: "Spilled NOTIFY payload was not found.",
+    },
+    TRN_026 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-026",
+        message: "Failed to deserialize NOTIFY payload.",
+    },
+    TRN_027 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-027",
+        message: "Failed to serialize PostgreSQL bus payload.",
+    },
+    TRN_028 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-028",
+        message: "Failed to spill oversized bus payload.",
+    },
+    TRN_029 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-029",
+        message: "Failed to pg_notify bus topic.",
+    },
+    TRN_030 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-030",
+        message: "Failed to LISTEN on PostgreSQL bus channel.",
+    },
+    TRN_031 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "TRN-031",
+        message: "Failed to subscribe to NATS subject.",
+    },
+}

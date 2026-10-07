@@ -1,0 +1,16 @@
+# Faster local linking. Uncomment a block that matches your toolchain.
+#
+# Linux (lld):
+# [target.x86_64-unknown-linux-gnu]
+# rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+#
+# Linux (mold):
+# [target.x86_64-unknown-linux-gnu]
+# rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+#
+# macOS (already uses ld64; optional zld/sold is not required).
+#
+# Measure a kernel-only cold graph:
+#   just measure-kernel
+# rquickjs is not a riverbase_core dependency (process scripts live in river_lotus).
+# AWS SDKs stay behind cfgfetch-s3 / cfgfetch-oci.

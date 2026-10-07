@@ -1,0 +1,18 @@
+[package]
+name = "riverbase_proc"
+description = "Proc-macros for riverbase_core command/query registration"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1"
+quote = "1"
+syn = { version = "2", features = ["full"] }
+
+[lints]
+workspace = true

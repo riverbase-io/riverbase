@@ -1,0 +1,111 @@
+RFX JSC Proprietary License
+LicenseRef-RFX-Proprietary
+
+Copyright (c) 2026 RFX JSC. All rights reserved.
+https://riverflow.solutions
+
+riverbase (the "Software"), including its source code, object code,
+documentation, schemas, configuration, examples, and related materials, is
+the proprietary and confidential property of RFX JSC ("Licensor").
+
+This license reserves all rights. It is not an open-source license. No
+right is granted except the limited permission in section 1, or a right
+expressly granted in a separate written agreement with Licensor.
+
+1. Limited permission
+
+You may privately view the Software solely to evaluate whether to request
+a commercial license from Licensor. That permission is personal,
+non-exclusive, non-transferable, and revocable. It does not include the
+right to use the Software in production, to build upon it, or to share it.
+
+Any other use requires a separate written license from Licensor. Payment
+of a fee, access to a repository, or receipt of a copy does not by itself
+create such a license.
+
+2. Restrictions
+
+Except as section 1 allows, or as a written agreement with Licensor
+expressly allows, you may not:
+
+  a. copy, reproduce, or store the Software;
+  b. modify, translate, adapt, or create derivative works of the Software;
+  c. distribute, publish, sublicense, rent, lease, lend, sell, or otherwise
+     make the Software available to any third party;
+  d. use the Software to provide a service, product, or hosted offering;
+  e. remove, alter, or obscure any copyright, trademark, or other
+     proprietary notice;
+  f. reverse engineer, decompile, or disassemble the Software, except to
+     the limited extent that applicable law forbids this restriction.
+
+3. Confidentiality
+
+The Software is confidential information of Licensor. You shall protect it
+using at least reasonable care, use it only as this license permits, and
+not disclose it to any third party. These duties survive termination of
+this license.
+
+4. Ownership
+
+Licensor and its licensors retain all right, title, and interest in the
+Software, including all copyrights, patents, trade secrets, trademarks,
+and other intellectual-property rights. This license grants no ownership
+and no implied license under any patent or other right.
+
+If you provide suggestions or feedback about the Software, Licensor may
+use them without restriction or obligation to you.
+
+5. Third-party components
+
+The Software may be built with or accompanied by third-party components
+that are licensed under their own terms. Those terms govern only the
+applicable component. They do not license Licensor's proprietary materials,
+and they do not grant any right in the Software as a whole.
+
+6. Trademarks
+
+"RFX", "riverbase", and related marks are trademarks of their respective
+owners. This license does not grant any right to use them.
+
+7. Termination
+
+This license ends automatically if you breach it. On termination you shall
+stop all use of the Software and destroy copies in your possession or
+control, except copies you are required by law to retain. Sections 3, 4,
+5, 6, 8, 9, and 10 survive termination.
+
+8. Disclaimer of warranty
+
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING ANY WARRANTY OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE, OR NON-INFRINGEMENT. THE ENTIRE
+RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU.
+
+9. Limitation of liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LICENSOR AND ITS
+CONTRIBUTORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS,
+DATA, GOODWILL, OR BUSINESS, ARISING OUT OF OR RELATED TO THIS LICENSE OR
+THE SOFTWARE, WHETHER IN CONTRACT, TORT, OR OTHERWISE, EVEN IF ADVISED OF
+THE POSSIBILITY OF SUCH DAMAGES. LICENSOR'S TOTAL LIABILITY ARISING OUT OF
+THIS LICENSE SHALL NOT EXCEED THE AMOUNT YOU PAID LICENSOR FOR THE
+SOFTWARE IN THE TWELVE MONTHS BEFORE THE CLAIM, OR ZERO IF YOU PAID
+NOTHING.
+
+Some jurisdictions do not allow certain disclaimers or limitations. In
+those jurisdictions, the disclaimers and limitations apply to the maximum
+extent permitted.
+
+10. General
+
+If a provision of this license is held unenforceable, the remaining
+provisions continue in effect. A failure to enforce a provision is not a
+waiver. This license is the entire agreement between you and Licensor
+about the Software and supersedes prior discussions on that subject,
+except a separate written agreement with Licensor, which controls if it
+conflicts with this license. You may not assign this license. Licensor
+may assign it.
+
+All rights not expressly granted are reserved by RFX JSC
+(https://riverflow.solutions).

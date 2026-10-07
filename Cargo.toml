@@ -1,0 +1,250 @@
+[workspace]
+exclude = ["target"]
+members = [
+    "crates/riverbase_http",
+    "crates/riverbase_core",
+    "crates/riverbase_file",
+    "crates/riverbase_task",
+    "crates/riverbase_proc",
+    "crates/riverbase_form",
+]
+resolver = "2"
+
+[workspace.dependencies]
+anyhow = "1"
+async-stream = "0.3"
+async-trait = "0.1"
+aws-config = "1.12"
+aws-sdk-ecr = "1.120"
+aws-sdk-s3 = "1.136"
+ciborium = "0.2"
+diesel_migrations = "2.2"
+evalexpr = "11"
+futures-util = "0.3"
+gcp_auth = "0.12"
+hcl-rs = "0.19"
+indexmap = "2.1"
+jsonschema = "0.46"
+jsonwebtoken = "9"
+paste = "1"
+r2d2 = "0.8"
+rand = "0.9"
+regex = "1"
+rquickjs = "0.10"
+rust-rule-engine = "1.20"
+serde_yaml = "0.9"
+subtle = "2"
+thiserror = "2"
+toml = "0.8"
+tower = "0.5"
+tower-sessions = "0.14"
+tracing = "0.1"
+url = "2"
+zen-engine = "*"
+zeroize = "1.9"
+
+[workspace.dependencies.aide]
+features = [
+    "axum",
+    "axum-json",
+    "axum-query",
+    "macros",
+]
+version = "0.15"
+
+[workspace.dependencies.axum]
+features = [
+    "form",
+    "json",
+    "macros",
+    "tokio",
+]
+version = "0.8"
+
+[workspace.dependencies.axum-extra]
+features = ["cookie"]
+version = "0.10"
+
+[workspace.dependencies.casbin]
+default-features = false
+features = ["runtime-tokio"]
+version = "2.10"
+
+[workspace.dependencies.chrono]
+features = ["serde"]
+version = "0.4"
+
+[workspace.dependencies.deadpool]
+default-features = false
+features = [
+    "managed",
+    "rt_tokio_1",
+]
+version = "0.12"
+
+[workspace.dependencies.diesel]
+features = [
+    "postgres",
+    "chrono",
+    "uuid",
+    "serde_json",
+    "r2d2",
+]
+version = "2.2"
+
+[workspace.dependencies.diesel-async]
+features = [
+    "postgres",
+    "deadpool",
+]
+version = "0.5"
+
+[workspace.dependencies.riverbase_core]
+path = "crates/riverbase_core"
+
+[workspace.dependencies.river_duckweed]
+path = "../river-duckweed"
+
+[workspace.dependencies.river_lilypad]
+path = "../river-lilypad"
+
+[workspace.dependencies.riverbase_file]
+path = "crates/riverbase_file"
+
+[workspace.dependencies.river_lotus]
+path = "../river-lotus"
+
+[workspace.dependencies.river_culvert]
+path = "../river-culvert"
+
+[workspace.dependencies.riverbase_form]
+path = "crates/riverbase_form"
+
+[workspace.dependencies.river_hatch]
+path = "../river-hatch"
+
+[workspace.dependencies.riverbase_http]
+path = "crates/riverbase_http"
+
+[workspace.dependencies.riverbase_proc]
+path = "crates/riverbase_proc"
+
+[workspace.dependencies.river_reed]
+path = "../river-reed"
+
+[workspace.dependencies.riverbase_task]
+path = "crates/riverbase_task"
+
+[workspace.dependencies.river_ground]
+path = "../river-ground"
+
+[workspace.dependencies.garde]
+default-features = false
+features = [
+    "derive",
+    "serde",
+]
+version = "0.22"
+
+[workspace.dependencies.oauth2]
+default-features = false
+version = "5"
+
+[workspace.dependencies.ractor]
+features = ["async-trait"]
+version = "0.15"
+
+[workspace.dependencies.reqwest]
+default-features = false
+features = [
+    "form",
+    "json",
+    "rustls",
+]
+version = "0.13"
+
+[workspace.dependencies.schemars]
+features = [
+    "preserve_order",
+    "chrono04",
+    "uuid1",
+]
+version = "0.9"
+
+[workspace.dependencies.serde]
+features = ["derive"]
+version = "1"
+
+[workspace.dependencies.serde_json]
+features = ["preserve_order"]
+version = "1"
+
+[workspace.dependencies.todo-domain]
+path = "examples/todo-app/domain"
+
+[workspace.dependencies.tokio]
+features = [
+    "rt-multi-thread",
+    "macros",
+    "net",
+    "sync",
+    "time",
+    "io-util",
+    "fs",
+    "process",
+    "signal",
+]
+version = "1"
+
+[workspace.dependencies.tokio-postgres]
+features = [
+    "with-serde_json-1",
+    "with-uuid-1",
+]
+version = "0.7"
+
+[workspace.dependencies.tower-http]
+features = [
+    "trace",
+    "cors",
+]
+version = "0.6"
+
+[workspace.dependencies.tracing-subscriber]
+features = [
+    "env-filter",
+    "json",
+    "ansi",
+]
+version = "0.3"
+
+[workspace.dependencies.ulid]
+features = ["serde"]
+version = "1"
+
+[workspace.dependencies.uuid]
+features = [
+    "v4",
+    "v5",
+    "serde",
+]
+version = "1"
+
+[workspace.lints.clippy]
+manual_non_exhaustive = "allow"
+result_large_err = "allow"
+too_many_arguments = "allow"
+
+[workspace.lints.clippy.all]
+level = "warn"
+priority = -1
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.package]
+authors = ["ABX Ltd"]
+edition = "2021"
+license = "LicenseRef-RFX-Proprietary"
+version = "0.2.0"
+

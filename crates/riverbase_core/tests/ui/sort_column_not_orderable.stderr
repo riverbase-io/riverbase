@@ -1,0 +1,24 @@
+error[E0080]: evaluation panicked: QRY-126: sortable field is not orderable on the storage entity. Add the physical column to order: or mark the field no_sort.
+  --> tests/ui/sort_column_not_orderable.rs:10:15
+   |
+10 |   const _: () = riverbase_core::query::assert_sort_columns_covered(
+   |  _______________^
+11 | |     "ProbeEntity",
+12 | |     "ProbeKey",
+13 | |     ProbeKey::SORT_COLUMNS,
+14 | |     &["_id"],
+15 | | );
+   | |_^ evaluation of `_` failed inside this call
+   |
+note: inside `assert_sort_columns_covered`
+  --> $RUST/core/src/panic.rs
+   |
+   |           $crate::panicking::panic_fmt($crate::const_format_args!($($t)+));
+   |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the failure occurred here
+   |
+  ::: src/query/coverage.rs
+   |
+   | / ...   panic!(
+   | | ...       "QRY-126: sortable field is not orderable on the storage entity. Add the physical column to order: or mark the field no_...
+   | | ...   );
+   | |_______- in this macro invocation

@@ -1,0 +1,51 @@
+[package]
+name = "riverbase_form"
+description = "Declarative form and document templates for Riverbase"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+
+[features]
+default = ["postgres"]
+postgres = ["dep:diesel", "dep:diesel-async", "dep:diesel_migrations"]
+cli = ["dep:clap"]
+dgen = ["dep:river_duckweed"]
+
+[dependencies]
+riverbase_core = { workspace = true }
+riverbase_proc = { workspace = true }
+river_duckweed = { workspace = true, optional = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+async-trait = { workspace = true }
+tracing = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true, features = ["v4", "v5", "serde"] }
+garde = { workspace = true }
+schemars = { workspace = true }
+jsonschema = { workspace = true }
+evalexpr = { workspace = true }
+regex = { workspace = true }
+indexmap = { version = "2", features = ["serde"] }
+diesel = { workspace = true, optional = true }
+diesel-async = { workspace = true, optional = true }
+diesel_migrations = { workspace = true, optional = true }
+clap = { version = "4", features = ["derive"], optional = true }
+
+[dev-dependencies]
+tempfile = "3"
+tokio = { workspace = true, features = ["rt", "macros"] }
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "riverbase_form"
+path = "src/bin/riverbase_form.rs"
+required-features = ["cli"]
+
+[lints]
+workspace = true

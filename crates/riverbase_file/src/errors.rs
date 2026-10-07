@@ -1,0 +1,125 @@
+//! Error catalogue for `riverbase_file`.
+
+riverbase_core::declare_errors! {
+    type_base: "https://riverbase.io/~/rs/error/",
+    MED_007 {
+        status: 404,
+        title: "Not Found",
+        code: "MED-007",
+        message: "Filesystem is not registered.",
+    },
+    MED_008 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-008",
+        message: "Failed to build filesystem storage operator.",
+    },
+    MED_009 {
+        status: 422,
+        title: "Unprocessable Content",
+        code: "MED-009",
+        message: "S3 filesystem configuration requires a 'bucket' parameter.",
+    },
+    MED_010 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-010",
+        message: "Failed to build S3 storage operator.",
+    },
+    MED_011 {
+        status: 422,
+        title: "Unprocessable Content",
+        code: "MED-011",
+        message: "HTTP filesystem configuration requires an 'endpoint' parameter.",
+    },
+    MED_012 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-012",
+        message: "Failed to build HTTP storage operator.",
+    },
+    MED_013 {
+        status: 422,
+        title: "Unprocessable Content",
+        code: "MED-013",
+        message: "Filesystem media storage requires the `fs` cargo feature.",
+    },
+    MED_014 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-014",
+        message: "Failed to write media file to storage.",
+    },
+    MED_015 {
+        status: 404,
+        title: "Not Found",
+        code: "MED-015",
+        message: "Media file has no storage path.",
+    },
+    MED_016 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-016",
+        message: "Failed to read media file from storage.",
+    },
+    MED_017 {
+        status: 422,
+        title: "Unprocessable Content",
+        code: "MED-017",
+        message: "Media stream chunk_size must be greater than zero.",
+    },
+    MED_018 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-018",
+        message: "Failed to delete media file from storage.",
+    },
+    MED_019 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-019",
+        message: "Failed to check media file existence in storage.",
+    },
+    MED_020 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-020",
+        message: "Failed to serialize media entry.",
+    },
+    MED_024 {
+        status: 404,
+        title: "Not Found",
+        code: "MED-024",
+        message: "Media entry was not found.",
+    },
+    MED_032 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-032",
+        message: "Failed to connect to Postgres for media metadata.",
+    },
+    MED_033 {
+        status: 500,
+        title: "Internal Server Error",
+        code: "MED-033",
+        message: "Failed to apply media metadata database migrations.",
+    },
+    MED_034 {
+        status: 422,
+        title: "Unprocessable Content",
+        code: "MED-034",
+        message: "S3 media storage requires the `aws-s3` cargo feature.",
+    },
+    MED_035 {
+        status: 422,
+        title: "Unprocessable Content",
+        code: "MED-035",
+        message: "HTTP media storage requires the `http` cargo feature.",
+    },
+    MED_036 {
+        status: 422,
+        title: "Unprocessable Content",
+        code: "MED-036",
+        message: "Unsupported media storage protocol.",
+    },
+}
